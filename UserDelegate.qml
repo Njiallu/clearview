@@ -1,4 +1,6 @@
 import QtQuick 2.0
+import QtQuick.Window 2.0
+import QtGraphicalEffects 1.0
 
 Item {
 
@@ -13,10 +15,10 @@ Item {
   Text {
     id: usersName
 
-    color: "gray"
+    color: "white"
     font {
       family: config.fontFamily
-      pointSize: (config.enableHDPI == "true") ? 12 : 20
+      pointSize: (config.enableHDPI == "true") ? 18 : 22
     }
     text: realName
     anchors.horizontalCenter: parent.horizontalCenter
@@ -26,15 +28,26 @@ Item {
   Image {
     id: usersPic
 
-    width: 192
-    height: 192
+    width: (config.enableHDPI == "true") ? 192 : 128
+    height: (config.enableHDPI == "true") ? 192 : 128
+    source: icon
     anchors {
       top: usersName.bottom
       topMargin: 50
       horizontalCenter: parent.horizontalCenter
     }
-    source: icon
+    layer.enabled: true
+    layer.effect: OpacityMask {
+      maskSource: mask
+    }
   }
+    Rectangle {
+      id: mask
+      width: (config.enableHDPI == "true") ? 192 : 128
+      height: (config.enableHDPI == "true") ? 192 : 128
+      radius: (config.enableHDPI == "true") ? 96 : 64
+      visible: false
+    }
 
   MouseArea {
     anchors.fill: parent

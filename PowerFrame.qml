@@ -35,7 +35,7 @@ Row {
       opacity: shutdownArea.containsMouse ? 1 : 0
 
       Behavior on opacity {
-        NumberAnimation { duration: 350; easing.type: Easing.InOutQuad}
+        NumberAnimation { duration: 150; easing.type: Easing.InOutQuad}
       }
     }
   }
@@ -62,7 +62,7 @@ Row {
       opacity: restartArea.containsMouse ? 1 : 0
 
       Behavior on opacity {
-        NumberAnimation { duration: 350; easing.type: Easing.InOutQuad}
+        NumberAnimation { duration: 150; easing.type: Easing.InOutQuad}
       }
     }
   }
@@ -94,7 +94,7 @@ Row {
       opacity: sessionArea.containsMouse ? 1 : 0
 
       Behavior on opacity {
-        NumberAnimation { duration: 350; easing.type: Easing.InOutQuad}
+        NumberAnimation { duration: 150; easing.type: Easing.InOutQuad}
       }
     }
 

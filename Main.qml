@@ -46,7 +46,7 @@ Item {
         height: parent.height
         text: name
         color: "white"
-        opacity: (delegateArea.containsMouse || sessionSelect.currentIndex == index) ? 1 : 0.3
+        opacity: (delegateArea.containsMouse || sessionSelect.currentIndex == index) ? 1 : 0.7
         font {
           pointSize: (config.enableHDPI == "true") ? 6 : 12
           family: config.fontFamily
@@ -93,7 +93,7 @@ Item {
         PropertyAnimation {
           target: sessionSelect
           properties: "opacity"
-          duration: 500
+          duration: 350
         }
       }
     },
@@ -104,7 +104,7 @@ Item {
         PropertyAnimation {
           target: sessionSelect
           properties: "opacity"
-          duration: 500
+          duration: 350
         }
         PropertyAnimation {
           target: sessionSelect
@@ -150,7 +150,7 @@ Item {
       PropertyAnimation {
         target: listView
         properties: "opacity"
-        duration: 500
+        duration: 350
       }
       PropertyAnimation {
         target: listView
@@ -165,7 +165,7 @@ Item {
       PropertyAnimation {
         target: loginFrame
         properties: "opacity"
-        duration: 500
+        duration: 350
       }
     }
   },
@@ -178,7 +178,7 @@ Item {
       PropertyAnimation {
         target: loginFrame
         properties: "opacity"
-        duration: 500
+        duration: 350
       }
       PropertyAnimation {
         target: loginFrame
@@ -193,7 +193,7 @@ Item {
       PropertyAnimation {
         target: listView
         properties: "opacity"
-        duration: 500
+        duration: 350
       }
     }
   }]

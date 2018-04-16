@@ -32,7 +32,7 @@ ListView {
 
   Timer {
     id: focusDelay
-	interval: 500
+	interval: 200
 	running: false
 	repeat: false
 
@@ -50,7 +50,7 @@ ListView {
     y: listView.currentItem.y + listView.currentItem.height
 
     Behavior on x {
-      NumberAnimation { duration: 350; easing.type: Easing.InOutQuad}
+      NumberAnimation { duration: 150; easing.type: Easing.InOutQuad}
     }
   }
 

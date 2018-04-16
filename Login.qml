@@ -1,5 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.4
+import QtQuick.Window 2.0
+import QtGraphicalEffects 1.0
 
 Item {
   id: loginFrame
@@ -15,7 +17,7 @@ Item {
   focus: false
 
   Behavior on opacity {
-    NumberAnimation { duration: 500; easing.type: Easing.InOutQuad }
+    NumberAnimation { duration: 150; easing.type: Easing.InOutQuad }
   }
 
   //Functions:
@@ -80,13 +82,13 @@ Item {
     PropertyAnimation {
       properties: "opacity"
       easing.type: Easing.InOutQuad
-      duration: 750
+      duration: 350
     }
 
     PropertyAnimation {
       properties: "height"
       easing.type: Easing.InOutQuad
-      duration: 750
+      duration: 350
     }
   }
 
@@ -111,14 +113,14 @@ Item {
     }
   }
 
-
   Item {
     id: userProfile
 
-    width: (config.enableHDPI == "true") ? 250 : 200
+    width: (config.enableHDPI == "true") ? 450 : 350
     height: (config.enableHDPI == "true") ? 450 : 350
 
     y:0
+	visible: true
     anchors {
       horizontalCenter: parent.horizontalCenter
       verticalCenter: parent.verticalCenter
@@ -128,10 +130,10 @@ Item {
     Text {
       id: usersName
 
-      color: "gray"
+      color: "white"
       font {
         family: config.fontFamily
-        pointSize: (config.enableHDPI == "true") ? 12 : 20
+        pointSize: (config.enableHDPI == "true") ? 22 : 32
       }
       text: loginFrame.realName
       anchors.horizontalCenter: parent.horizontalCenter
@@ -141,6 +143,7 @@ Item {
     Image {
       id: usersPic
 
+      source: loginFrame.icon
       width: (config.enableHDPI == "true") ? 192 : 128
       height: (config.enableHDPI == "true") ? 192 : 128
       anchors {
@@ -148,7 +151,19 @@ Item {
         topMargin: 50
         horizontalCenter: parent.horizontalCenter
       }
-      source: loginFrame.icon
+      fillMode: Image.PreserveAspectCrop
+      layer.enabled: true
+      layer.effect: OpacityMask {
+        maskSource: mask
+      }
+    }
+
+    Rectangle {
+      id: mask
+      width: (config.enableHDPI == "true") ? 192 : 128
+      height: (config.enableHDPI == "true") ? 192 : 128
+      radius: (config.enableHDPI == "true") ? 96 : 64
+      visible: false
     }
 
   }
